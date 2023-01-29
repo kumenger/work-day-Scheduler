@@ -58,12 +58,3 @@ textarea {
   transition: all 0.3s ease-in-out;
 }
 
-.notbusnesHour {
-  background-color: #9c8f8f;
-  color: white;
-}
-.notbusnesHour:hover{
-  content: '❌';
-  position: relative;
-  color: #ff6961;
-}

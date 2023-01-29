@@ -2,38 +2,27 @@ $(document).ready(
   $(function () {
     var timeBlockEl = $(".time-block");
     var today = dayjs();
-    var currentHour = today.format("H");
-    //console.log('in 12 hour',today.format('h'))
-    console.log(currentHour);
-    //currentHour = "hour-" + currentHour;
+
     $("#currentDay").text(today.format("dddd, MMMM D YYYY"));
-    var bussnesTime = [
-      
-      "9",
-      "10",
-      "11",
-      "12",
-      "13",
-      "14",
-      "15",
-      "16",
-      "17",
-     
-    ];
+    console.log(dayjs().format("M-D-YYYY-H"));
+
     $.each(timeBlockEl, function (i, v) {
-      let hourIndex = $.inArray(currentHour, bussnesTime);
-      console.log(i, hourIndex);
-      if (hourIndex < 0) {
-        $(this).addClass("notbusnesHour");
+var sethour=today.set("hour", $(this).attr("id"))
+
+      if (
+       sethour.isAfter(dayjs(today))
+      ) {
+        $(this).addClass('future') 
       }
-      if (i === hourIndex) {
-        $(this).addClass("present");
+      if (
+       sethour.isBefore(dayjs(today))
+      ) {
+        $(this).addClass('past') 
       }
-      if (i > hourIndex) {
-        $(this).addClass("future");
-      }
-      if (i < hourIndex) {
-        $(this).addClass("past");
+      if (
+       sethour.isSame(dayjs(today))
+      ) {
+        $(this).addClass('present') 
       }
     });
     timeBlockEl.on("click", ".saveBtn", function (event) {
