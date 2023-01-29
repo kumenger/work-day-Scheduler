@@ -4,7 +4,7 @@ $(document).ready(
  var today = dayjs();
  var currentHour=today.format('h')
  currentHour='hour-'+currentHour;
-$('#currentDay').text(today.format('MMM D, YYYY'));
+$('#currentDay').text(today.format('dddd, MMMM D YYYY'));
 var bussnesTime=[
 
  "hour-9",
@@ -29,7 +29,15 @@ $.each(timeBlockEl,function(i,v){
    }
   
 })
+timeBlockEl.on('click','.saveBtn',function(event){
+  //console.log($(this).attr('aria-label'))
 
+  
+  //console.log($(this).parent().attr('id'))
+  console.log($(this).parent().children('.description').val())
+  console.log($(this).parent().children('.hour').html())
+  
+})
 
 
 
