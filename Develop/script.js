@@ -1,9 +1,51 @@
+$(document).ready(
+  $(function () {
+ var timeBlockEl=$('.time-block')
+ var today = dayjs();
+ var currentHour=today.format('h')
+ currentHour='hour-'+currentHour;
+$('#currentDay').text(today.format('MMM D, YYYY'));
+var bussnesTime=[
+
+ "hour-9",
+ "hour-10",
+ "hour-11",
+ "hour-12",
+ "hour-1",
+ "hour-2",
+ "hour-3",
+ "hour-4",
+]
+$.each(timeBlockEl,function(i,v){
+  let hourIndex=$.inArray(currentHour,bussnesTime)
+ if(i===hourIndex){
+    $(this).addClass('present')                                    
+   }
+   else if(i>hourIndex){
+    $(this).addClass('future')  
+   }
+   else if(i<hourIndex){
+    $(this).addClass('past') 
+   }
+  
+})
+
+
+
+
+
+ 
+ 
+
+  })
+)
+
+
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
 
-$(function () {
-  // TODO: Add a listener for click events on the save button. This code should
+ // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
   // local storage. HINT: What does `this` reference in the click listener
   // function? How can DOM traversal be used to get the "hour-x" id of the
@@ -21,4 +63,3 @@ $(function () {
   // attribute of each time-block be used to do this?
   //
   // TODO: Add code to display the current date in the header of the page.
-});
