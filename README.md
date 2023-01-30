@@ -14,7 +14,7 @@
 
 N/A
 ## Workiing Application
-[Javascript quizes](https://kumenger.github.io/work-day-Scheduler/)
+[Event scheduler](https://kumenger.github.io/work-day-Scheduler/)
 
 ## Usage
 
