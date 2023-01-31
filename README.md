@@ -18,7 +18,7 @@ N/A
 
 ## Usage
 
-a user inpute event deatils at specific time and that event is saved to storage
+a user inpute events at specific time and that event is saved to storage and current hour is given background color red and past hour will have gray background and future will be colord green based on current local time
 
 ## Credits
 N/A

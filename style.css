@@ -1,6 +1,10 @@
 body {
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
+  background-color: #f3dec6;
+}
+.infom{
+  color: #000000;
 }
 
 textarea {

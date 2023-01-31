@@ -4,6 +4,7 @@ $(document).ready(
     var timeBlockEl = $(".time-block");
     var today = dayjs();
     var currDay=$('#succes')
+    
     $("#currentDay").text(today.format("dddd, MMMM D YYYY"));
 
     $.each(timeBlockEl, function (i, v) {
@@ -26,15 +27,16 @@ $(document).ready(
         $(this).parent().children(".description").val().trim() || " ";
       var eventTime = $(this).parent().children(".hour").html();
       if (eventDes !== " ") {
-        events = JSON.parse(localStorage.getItem("events") || "[]");
+       var events = JSON.parse(localStorage.getItem("events") || "[]");
 
         events.push({
           oNeventDes: eventDes,
           oNeventTime: eventTime,
         });
        
-     
-        currDay.text='Appointment added to local storage ✅'
+      
+        currDay.text('Appointment added to local storage ✅')
+        setInterval(()=>currDay.text(''),5000)
       
       } else {
         window.alert("event Description is requred to save event ❌");
